@@ -138,4 +138,20 @@ claude-*
 claude_exports/
 .claude/
 
+# Kaggle API credentials (IMPORTANT: Never commit this!)
+kaggle.json
+**/kaggle.json
+.kaggle/
+
+# Data files (too large for git)
+data/raw/*.csv
+data/processed/*.csv
+*.csv
+
+# Model files (too large for git)
+outputs/models/*.keras
+outputs/models/*.h5
+*.keras
+*.h5
+
 # End of .gitignore

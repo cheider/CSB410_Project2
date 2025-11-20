@@ -3,7 +3,7 @@ channels:
   - defaults
   - conda-forge
 dependencies:
-  - python
+  - python=3.10
   - numpy
   - pandas
   - matplotlib
@@ -18,4 +18,4 @@ dependencies:
   - keras
   - pip
   - pip:
-    - pytest`
+    - pytest
