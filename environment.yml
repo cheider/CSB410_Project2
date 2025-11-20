@@ -1,0 +1,21 @@
+name: project2
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python
+  - numpy
+  - pandas
+  - matplotlib
+  - seaborn
+  - scikit-learn
+  - jupyter
+  - notebook
+  - ipykernel
+  - black
+  - flake8
+  - tensorflow
+  - keras
+  - pip
+  - pip:
+    - pytest`

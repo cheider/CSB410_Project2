@@ -1,0 +1,42 @@
+# Jupyter Notebook specific ignores
+.ipynb_checkpoints
+*.ipynb
+*.nb.html
+
+# Jupyter runtime files
+jupyter_*.json
+runtime/
+
+# Notebook outputs and checkpoints
+*.nbconvert.ipynb
+
+# Python caches
+__pycache__/
+*.py[cod]
+
+# Environment folders
+.env/
+.venv/
+venv/
+ENV/
+
+# VS Code workspace settings
+.vscode/
+
+# Data files (optional, uncomment if needed)
+# data/
+# *.csv
+# *.h5
+
+# Claude/Anthropic excludes for notebooks
+# Files produced by Claude exports, sessions, or tooling
+claude-*
+*.claude
+claude_exports/
+.claude/
+
+# Notebook checkpoints, temp and metadata
+*.ipynb_checkpoints/
+nbresults/
+
+# End of notebook.gitignore
