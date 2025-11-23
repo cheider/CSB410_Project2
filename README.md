@@ -125,6 +125,13 @@ The notebook is also compatible with Google Colab:
 - The main notebook (`main.ipynb`) is located in the root directory for easy access
 - All outputs are saved in the notebook to show results without re-running computationally expensive training
 
+## AI Use
+AI was used in the following workflows
+- Suggesting ideas and flow of experiments
+- Ensuring answers are accurate
+- Generating Graphs and function options/syntax
+- Formatting and review of Analysis
+
 ## Troubleshooting
 
 **Import Errors:** Ensure the conda environment is activated with `conda activate project2`
