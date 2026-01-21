@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "csb410-project2"
+version = "0.1.0"
+description = "Optimizing Deep Learning Pipelines — Sign Language MNIST experiments"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [ { name = "Colin Heider" } ]
+requires-python = ">=3.8"
+dependencies = [
+  "numpy",
+  "pandas",
+  "matplotlib",
+  "seaborn",
+  "tensorflow",
+  "scikit-learn",
+  "jupyter"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
