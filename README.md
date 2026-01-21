@@ -17,16 +17,39 @@ Source dataset: https://www.kaggle.com/datasets/datamunge/sign-language-mnist
 
 ## Folder structure
 
-- `src/` — Python package code. Place reusable modules and helper functions here.
-  - `src/utils/` — utility functions for data loading, preprocessing, and plotting.
-- `notebooks/` — Jupyter notebooks (one primary `.ipynb` with organized sections; include a README cell at the top explaining how to run it).
-- `data/`
-  - `data/raw/` — place original downloaded datasets here (do not commit large raw files to GitHub).
-  - `data/processed/` — preprocessed data and cache files.
-- `outputs/` — saved models, figures, logs, and exported results.
-- `tests/` — unit and integration tests (pytest-friendly).
-- `scripts/` — helper scripts for downloading data, preprocessing, or training runs.
-- `docs/` — project documentation, reports, or artifacts for submission.
+| Path | Type | Purpose / What to store |
+| --- | --- | --- |
+| `data/raw/` | directory | Original downloaded dataset files (CSV, ZIP). Keep raw files here and exclude from git via `.gitignore`. |
+| `data/processed/` | directory | Preprocessed and cached artifacts (NumPy arrays, pickles, smaller CSVs). Safe to commit small caches; large caches can be excluded. |
+| `src/` | package | Reusable project code and modules. Commit source files here. |
+| `src/utils/` | package | Helper functions for data loading, preprocessing, and plotting. |
+| `notebooks/` | directory | Primary Jupyter notebook(s) (e.g., `main.ipynb`). Prefer cleared outputs before committing. |
+| `outputs/` | directory | Model checkpoints, figures, logs, and exported results. Large artifacts should be stored externally or added to `.gitignore`. |
+| `outputs/models/` | directory | Saved model weights and checkpoints (`.h5`, `.ckpt`). |
+| `tests/` | directory | Unit and integration tests (pytest). |
+| `docs/` | directory | Project documentation, reports, and submission artifacts. |
+| `environment.yml` | file | Conda environment specification. Commit for reproducibility. |
+| `.gitignore` | file | Exclude raw data, large model artifacts, and other local files. |
+
+Notes on storage
+- Keep raw dataset files in `data/raw/` and exclude them from Git (use `.gitignore`).
+- Store processed, small cache files in `data/processed/` for reproducible runs; consider excluding very large caches.
+- Save large models/checkpoints and long-term artifacts in `outputs/` or external storage (Google Drive, S3); keep lightweight checkpoints in the repo only if necessary.
+- Clear notebook outputs before committing to keep repo size manageable.
+
+## Data & schema
+
+- **Source:** Sign Language MNIST on Kaggle (https://www.kaggle.com/datasets/datamunge/sign-language-mnist). The raw CSVs included here are `sign_mnist_train.csv` and `sign_mnist_test.csv`.
+- **CSV format:** first column is `label` (class index), remaining 784 columns are pixel values for a 28x28 grayscale image (row-major order). When converting to arrays we save as NumPy arrays of shape `(N, 28, 28)` or flattened `(N, 784)` depending on the pipeline step.
+- **Where to store:** place original downloaded CSV/ZIP files in `data/raw/`. Put preprocessed NumPy arrays, pickles, and smaller cached artifacts in `data/processed/`.
+- **Download (example using Kaggle CLI):**
+
+```bash
+# install and authenticate kaggle-cli first (https://github.com/Kaggle/kaggle-api)
+kaggle datasets download -d datamunge/sign-language-mnist -p data/raw/ --unzip
+```
+
+If you cannot use the Kaggle CLI, download via the web UI and move the files into `data/raw/`.
 
 ## Requirements & Environment
 
@@ -69,45 +92,36 @@ The notebook is also compatible with Google Colab:
 
 **Note:** This project has been tested and runs successfully in both local and Colab environments.
 
-## Deliverables
+## Project Components
 
-- A single `.ipynb` notebook containing code, results, and reflections (with a top README cell explaining how to run in Colab)
-- Optional `.py` utility modules in `src/`
-- `environment.yml` or `requirements.yml` for environment reproducibility
-- README (this file)
-
-## Implementation Status
-
-### Completed Components
-
-✅ **Data Loading & Preprocessing**
+**Data Loading & Preprocessing**
 - Loaded Sign Language MNIST dataset (24 classes, letters A-Z excluding J and Z)
 - Implemented data normalization and preprocessing pipeline
 - Handled train/test split
 
-✅ **Data Augmentation**
+**Data Augmentation**
 - Implemented augmentation techniques to improve model generalization
 - Applied rotation, shifts, zoom, and other transformations
 - Strategically applied to training data
 
-✅ **Baseline Model**
+**Baseline Model**
 - Built 3-layer dense neural network
 - Trained with Adam optimizer
 - Evaluated performance metrics
 
-✅ **Optimized Models**
+**Optimized Models**
 - Compared multiple optimizers (Adam, SGD, RMSProp)
 - Applied regularization techniques (Dropout, Batch Normalization, L2)
 - Conducted hyperparameter tuning and experimentation
 
-✅ **Visualization & Analysis**
+**Visualization & Analysis**
 - Generated training/validation accuracy and loss curves
 - Created confusion matrices
 - Produced classification reports
 - Analyzed class distribution
 - Visualized sample images
 
-✅ **Environment Configuration**
+**Environment Configuration**
 - Provided complete `environment.yml` with all required dependencies
 - Tested compatibility with both local and Colab environments
 
@@ -131,6 +145,7 @@ AI was used in the following workflows
 - Ensuring answers are accurate
 - Generating Graphs and function options/syntax
 - Formatting and review of Analysis
+- Formatting of the project structure to aid in bulk edits
 
 ## Troubleshooting
 
