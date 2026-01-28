@@ -214,7 +214,7 @@ Source dataset: https://www.kaggle.com/datasets/datamunge/sign-language-mnist
 | `data/raw/` | directory | Original downloaded dataset files (CSV, ZIP). Keep raw files here and exclude from git via `.gitignore`. |
 | `data/processed/` | directory | Preprocessed and cached artifacts (NumPy arrays, pickles, smaller CSVs). Safe to commit small caches; large caches can be excluded. |
 | `src/` | package | Reusable project code and modules. Commit source files here. |
-| `src/utils/` | package | Helper functions for data loading, preprocessing, and plotting. |
+| `src/main_data/` | package | Helper functions for data loading, preprocessing, and plotting. |
 | `notebooks/` | directory | Primary Jupyter notebook(s) (e.g., `main.ipynb`). Prefer cleared outputs before committing. |
 | `outputs/` | directory | Model checkpoints, figures, logs, and exported results. Large artifacts should be stored externally or added to `.gitignore`. |
 | `outputs/models/` | directory | Saved model weights and checkpoints (`.h5`, `.ckpt`). |
@@ -346,5 +346,3 @@ AI was used in the following workflows
 **Missing Data:** Download the Sign Language MNIST dataset from Kaggle and place CSV files in `data/raw/`
 
 **Memory Issues:** If running locally with limited RAM, reduce batch sizes or use Colab with GPU runtime
-
-**Colab Compatibility:** Upload both the notebook and dataset files when running on Colab

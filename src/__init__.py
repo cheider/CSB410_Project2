@@ -5,7 +5,7 @@
 Expose package version and package-level imports here.
 """
 
-__all__ = ["examplemodule"]
+__all__ = ["main_data"]
 __version__ = "0.1.0"
 
-from . import examplemodule
+from . import main_data
