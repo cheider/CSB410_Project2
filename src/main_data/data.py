@@ -4,8 +4,8 @@ import time
 from pathlib import Path
 from typing import Tuple
 from functools import wraps
-from numpy import extract
 import pandas as pd
+
 
 def time_method(func):
     """Decorator to measure and log the execution time of a method."""
@@ -17,6 +17,7 @@ def time_method(func):
         print(f"--- Method '{func.__name__}' took {duration:.4f} seconds ---")
         return result
     return wrapper
+
 
 class DataLoader:
     def __init__(self, data_dir: str = "data/raw"):
@@ -63,7 +64,8 @@ class DataLoader:
             return None
 
 
-def load_sign_mnist(data_dir: str = "data/raw") -> Tuple[pd.DataFrame, pd.DataFrame]:
+def load_sign_mnist(data_dir: str = "data/raw") -> Tuple[pd.DataFrame,
+                                                         pd.DataFrame]:
     """Load sign_mnist train and test CSV files from `data_dir`.
 
     Raises FileNotFoundError if the expected CSVs are not present.
